@@ -1,0 +1,17 @@
+const mongoose = require('mongoose');
+const mongoUrl = require('./personal/env');
+
+mongoose.connect(
+    mongoUrl,
+    { useNewUrlParser: true })
+    .then(() => console.log(console.log(mongoose.connection.readyState)))
+    .catch(err => console.log(err));
+
+let Schema = mongoose.Schema;
+const shortUrl = new Schema({
+    validUrl: {type: String, required: true},
+    shorterUrl: {type: Number, required: true}
+});
+const ValidUrl = mongoose.model('ValidUrl', shortUrl);
+
+module.exports = ValidUrl;

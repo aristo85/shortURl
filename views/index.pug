@@ -1,0 +1,8 @@
+doctype html
+html(lang='en')
+    head
+        title Hello, World!
+    body
+        form(action='/api/shorturl/new' method='POST')
+            input(type='text' placeholder='Enter Url' name='url')
+            button(type='submit') Enter
